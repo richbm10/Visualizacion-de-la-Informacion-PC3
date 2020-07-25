@@ -1,0 +1,19 @@
+{
+    "name": "map-happiness-d3",
+    "version": "1.0.0",
+    "description": "Data visualization of world happiness.",
+    "main": "map.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "http-server -p 8080 --cors"
+    },
+    "keywords": [
+        "data-visualization",
+        "d3"
+    ],
+    "author": "Ricardo Bonilla Morales",
+    "license": "ISC",
+    "dependencies": {
+        "http-server": "^0.12.3"
+    }
+}

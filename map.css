@@ -1,0 +1,253 @@
+html {
+    background-color: rgb(19, 20, 29);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
+    padding-top: 45px;
+    padding-bottom: 45px;
+}
+
+#title {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    text-align: center;
+    width: 100%;
+    font-size: 30px;
+    color: white;
+    border-radius: 20px;
+    border: 3px solid rgb(90, 230, 172);
+}
+
+#color-legend {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    left: 100px;
+    bottom: 0px;
+    width: 450px;
+    height: 30px;
+}
+
+.legend-label {
+    position: absolute;
+    top: 35px;
+    color: white;
+    width: 50px;
+    text-align: center;
+    font-size: 10px;
+}
+
+.legend-block {
+    width: 50px;
+    height: 30px;
+}
+
+.background {
+    fill: none;
+    pointer-events: all;
+}
+
+.map-container {
+    border: 3px solid rgb(138, 78, 216);
+    border-radius: 20px;
+    background-color: rgb(36, 38, 54);
+    padding-bottom: 1px;
+}
+
+.feature {
+    fill: #ccc;
+    cursor: pointer;
+}
+
+.mesh {
+    fill: none;
+    stroke: #fff;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+#info-panel {
+    display: none;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0px 50px;
+    min-width: 200px;
+}
+
+.stat-placeholder {
+    margin: 5px;
+    position: relative;
+    width: 140px;
+    border: 3px solid rgb(138, 78, 216);
+    height: 20px;
+    padding-right: 4px;
+    border-radius: 8px;
+}
+
+.stat-bar {
+    background-color: rgba(119, 89, 158, 0.493);
+    height: 20px;
+    border-radius: 4px;
+}
+
+.marker {
+    position: absolute;
+    box-shadow: 0 4px 8px 0 rgb(138, 78, 216), 0 6px 20px 0 rgb(138, 78, 216);
+    top: 0px;
+    width: 4px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.avg-marker {
+    background-color: rgb(90, 230, 172);
+    left: 0;
+}
+
+.min-marker {
+    background-color: rgb(197, 37, 63);
+    left: 0;
+}
+
+.metric-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#position-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    border-radius: 20px;
+    border: 2px solid rgb(90, 127, 230);
+    width: 60px;
+    height: 60px;
+    margin: 15px;
+}
+
+#fin-position-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    border-radius: 20px;
+    border: 2px solid rgb(90, 127, 230);
+    width: 60px;
+    height: 60px;
+    margin: 15px;
+}
+
+#country-name {
+    font-size: 32px;
+    max-width: 300px;
+}
+
+#fin-country-name {
+    font-size: 32px;
+    max-width: 300px;
+}
+
+.legend {
+    display: flex;
+    align-items: center;
+}
+
+#legend-panel {
+    margin-top: 70px;
+}
+
+#minimum-legend-box {
+    background-color: rgb(197, 37, 63);
+    border-radius: 8px;
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+}
+
+#average-legend-box {
+    background-color: rgb(90, 230, 172);
+    border-radius: 8px;
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+}
+
+#country-legend-box {
+    background-color: rgba(119, 89, 158, 0.493);
+    ;
+    border-radius: 8px;
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+}
+
+
+/* Correlation Graph */
+
+#correlation-graph {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    margin: 5px 20px;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.domain {
+    stroke: white;
+}
+
+line {
+    stroke: white;
+}
+
+text {
+    fill: white;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+}
+
+#additional-info {
+    display: flex;
+    justify-content: flex-start;
+    position: absolute;
+    top: 650px;
+    left: 0px;
+    border-radius: 10px;
+    border: 3px solid rgb(90, 230, 172);
+    color: white;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 20px 0px;
+}
+
+#finland-info-panel {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0px 50px;
+    min-width: 200px;
+}
+
+#storytelling {
+    width: 940px;
+    padding: 0px 10px;
+}

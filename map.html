@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<head>
+    <!-- Style -->
+    <link rel="stylesheet" type="text/css" href="map.css">
+</head>
+
+<body>
+    <div id='title'>
+        Happiness All Over The World
+    </div>
+
+    <div id='color-legend'></div>
+
+    <!-- Layout -->
+    <div id='info-panel'>
+        <!-- Header -->
+        <div style='display: flex; align-items: center;'>
+            <!-- Position -->
+            <div id='position-number'>
+                *
+            </div>
+            <!-- Country Name -->
+            <span id='country-name'>Global</span>
+        </div>
+
+        <!-- Score -->
+        <div>
+            <b>Score:</b>
+
+            <div id='score-panel' class='metric-panel'>
+                <div class='stat-placeholder'>
+                    <div id='score-bar' class='stat-bar'>
+                        <div class='avg-score marker avg-marker'></div>
+                        <div class='min-score marker min-marker'></div>
+                    </div>
+                </div>
+                <span id='country-score'>N/A</span>
+            </div>
+        </div>
+
+        <!-- GDP per Capita -->
+        <div>
+            <b>GDP per Capita:</b>
+
+            <div id='gdp-panel' class='metric-panel'>
+                <div class='stat-placeholder'>
+                    <div id='gdp-bar' class='stat-bar'>
+                        <div class='avg-gdp marker avg-marker'></div>
+                        <div id='min-gdp' class='marker min-marker'></div>
+                    </div>
+                </div>
+                <span id='country-gdp'>N/A</span>
+            </div>
+        </div>
+
+        <!-- Social Support -->
+        <div>
+            <b>Social Support:</b>
+
+            <div id='soc-support-panel' class='metric-panel'>
+                <div class='stat-placeholder'>
+                    <div id='soc-support-bar' class='stat-bar'>
+                        <div class='avg-soc-support marker avg-marker'></div>
+                        <div id='min-soc-support' class='marker min-marker'></div>
+                    </div>
+                </div>
+                <span id='country-soc-support'>N/A</span>
+            </div>
+        </div>
+
+        <!-- Social Support -->
+        <div>
+            <b>Freedom:</b>
+
+            <div id='freedom-panel' class='metric-panel'>
+                <div class='stat-placeholder'>
+                    <div id='freedom-bar' class='stat-bar'>
+                        <div class='avg-freedom marker avg-marker'></div>
+                        <div class='min-freedom marker min-marker'></div>
+                    </div>
+                </div>
+                <span id='country-freedom'>N/A</span>
+            </div>
+        </div>
+
+        <!-- Legend -->
+        <div id='legend-panel'>
+            <b>
+                LEGEND
+            </b>
+
+            <div class='legend'>
+                <div id='average-legend-box'></div>
+                Average
+            </div>
+
+
+            <div class='legend'>
+                <div id='minimum-legend-box'></div>
+                Minimum
+            </div>
+
+            <div class='legend'>
+                <div id='country-legend-box'></div>
+                This Country
+            </div>
+        </div>
+    </div>
+
+    <!-- Correlation -->
+    <div id='correlation-graph'>
+        <b style='font-size: 24px; color: rgb(138, 78, 216);'>Are richer countries happier?</b>
+        <b>Correlation Graph</b>
+        <span>Y = GDP per Capita</span>
+        <span>X = Happiness Score</span>
+        <b id='current-point' style='display: none;'>Country: N/A</b>
+    </div>
+
+    <!-- Libraries -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/topojson.v2.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+
+    <!-- JavaScript -->
+    <script type="text/javascript" src="map.js"></script>
+    <script type="text/javascript" src="correlation.js"></script>
+
+    <div id='additional-info'>
+        <p id='storytelling'>
+            <b style='font-size: 24px; color: rgb(138, 78, 216);'>
+                Why are some countries happier than others?
+            </b>
+            <br> This choropleth map intends to give an overview of the happiness of each country. In a recent survey (2019), 155 countries were given a score representing the average happiness of the people living in the country. This score was assigned
+            after evaluating survey responses which dealt with aspects such as: GDP per capita, quality of social support, life expectancy, freedom to make life choices, generosity and perceived corruption.
+            <br> The user may click a country in the map to display information about the country. When no country is selected, a correlation graph will be shown, which tries to associate the GDP per capita of a country with the happiness score assigned.
+            A trend can be seen: there is certainly a correlation between the country's wealth (represented in GDP per capita) and the happiness of its citizens. However, this is not a rule: there are outliers such as Botwana (higher than GDP, but low
+            happiness) and Costa Rica (only slightly higher-than-average wealth, but still number 12 overall in happiness).
+            <br> Another interesting fact: Finland, the number one country in this ranking, has a higher-than-average GDP per capita, but it is not as high as many other countries, some of which have an average happiness score (Hong Kong, for instance).
+            Once again, this shows that the wealth of country and the happiness of its citizens may have a correlation, but causation is not necessarily present.
+            <br> One might also wonder: what is it that makes Finland the "happiest" country in this ranking. An interesting take on this matter is "Finland scores well on all factors but particularly strongly on generosity". However, is it generosity
+            the cause of happiness? Or is generosity a product of happiness? Maybe both of these statements are true, and a higher-than-average generosity contributes to a higher happiness, which in turns leads to a higher generosity, and so on and so
+            forth. This might be a conjecture, but there should be some aspects of life on a determined country which can have this sort of behavior. For instance: the social support experienced by a person in its first 20 years of life might fuel their
+            desire to keep this level of social support equal or better in their country, in order to ensure a better future for their children. If this thought occurs to most people living in a country, then there will surely be many attempts to provide
+            the country with laws and other political mechanisms which will be of aid in the development of a better social support.
+
+
+        </p>
+
+        <div id='finland-info-panel'>
+            <!-- Header -->
+            <div style='display: flex; align-items: center;'>
+                <!-- Position -->
+                <div id='fin-position-number'>
+                    1
+                </div>
+                <!-- Country Name -->
+                <span id='fin-country-name'>Finland</span>
+            </div>
+
+            <!-- Score -->
+            <div>
+                <b>Score:</b>
+
+                <div id='score-panel' class='metric-panel'>
+                    <div class='stat-placeholder'>
+                        <div id='fin-score-bar' class='stat-bar'>
+                            <div class='avg-score marker avg-marker'></div>
+                            <div class='min-score marker min-marker'></div>
+                        </div>
+                    </div>
+                    <span id='fin-country-score'>N/A</span>
+                </div>
+            </div>
+
+            <!-- GDP per Capita -->
+            <div>
+                <b>GDP per Capita:</b>
+
+                <div id='gdp-panel' class='metric-panel'>
+                    <div class='stat-placeholder'>
+                        <div id='fin-gdp-bar' class='stat-bar'>
+                            <div class='avg-gdp marker avg-marker'></div>
+                            <div id='min-gdp' class='marker min-marker'></div>
+                        </div>
+                    </div>
+                    <span id='fin-country-gdp'>N/A</span>
+                </div>
+            </div>
+
+            <!-- Social Support -->
+            <div>
+                <b>Social Support:</b>
+
+                <div id='soc-support-panel' class='metric-panel'>
+                    <div class='stat-placeholder'>
+                        <div id='fin-soc-support-bar' class='stat-bar'>
+                            <div class='avg-soc-support marker avg-marker'></div>
+                            <div id='min-soc-support' class='marker min-marker'></div>
+                        </div>
+                    </div>
+                    <span id='fin-country-soc-support'>N/A</span>
+                </div>
+            </div>
+
+            <!-- Social Support -->
+            <div>
+                <b>Freedom:</b>
+
+                <div id='freedom-panel' class='metric-panel'>
+                    <div class='stat-placeholder'>
+                        <div id='fin-freedom-bar' class='stat-bar'>
+                            <div class='avg-freedom marker avg-marker'></div>
+                            <div class='min-freedom marker min-marker'></div>
+                        </div>
+                    </div>
+                    <span id='fin-country-freedom'>N/A</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- BEFORE RUNNING: http-server -p 8080 --cors -->
